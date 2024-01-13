@@ -14,5 +14,6 @@ clash({pattern: "photo", fromMe: false, desc: "Converts sticker to photo.", type
 async ({args, msg, conn}) => {
 if(!msg.isQuotedMsg) return await msg.tinyreply("*_Reply to a sticker!_*");
 let buff = await msg.quotedMsg.download();
-return await conn.sendMessage(msg.from,{image:{url:buff}},{quoted:msg});
+return await msg.reply(buff)
+//return await conn.sendMessage(msg.from,{image:{url:buff}},{quoted:msg});
 });
